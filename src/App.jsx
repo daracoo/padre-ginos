@@ -1,13 +1,19 @@
+import { useState } from "react";
+import { CartContext } from "./contexts";
+import Header from "./Header";
 import Order from "./Order";
 import PizzaOfTheDay from "./PizzaOfTheDay";
 
 const App = () => {
+  const cartHook = useState([]);
   return (
-    <div>
-      <h1 className="logo">Padre Gino's Pizza</h1>
-      <Order />
-      <PizzaOfTheDay />
-    </div>
+    <CartContext.Provider value={cartHook}>
+      <div>
+        <Header />
+        <Order />
+        <PizzaOfTheDay />
+      </div>
+    </CartContext.Provider>
   );
 };
 
